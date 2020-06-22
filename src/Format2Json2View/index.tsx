@@ -1,12 +1,25 @@
-import React from 'react';
-import './index.scss';
+import React from "react";
+
+type Source =
+  | number
+  | string
+  | boolean
+  | undefined
+  | null
+  | Source[]
+  | {
+      [key: string]: Source;
+    }
+  | {
+      [key: number]: Source;
+    };
 
 interface IProps {
-  data: any;
+  source: Source;
 }
 
 interface Json {
-  [key: string]: string
+  [key: string]: string;
 }
 
 function complexValueRender(value: Json | any[]) {
@@ -14,7 +27,7 @@ function complexValueRender(value: Json | any[]) {
 
   return isArray ? (
     <>
-      {`[ `}{' '}
+      {`[ `}{" "}
       <div className="array">
         {(value as any[]).map((v: any, i: number) => (
           <div key={i} className="line">
@@ -24,17 +37,22 @@ function complexValueRender(value: Json | any[]) {
       </div>
       ]
     </>
-  ) : <>
-    {`{ `}
-    <div className="json">{jsonRender(value as Json)}</div>
-    {`}`}
-  </>
+  ) : (
+    <>
+      {`{ `}
+      <div className="json">{jsonRender(value as Json)}</div>
+      {`}`}
+    </>
+  );
 }
 
-function simpleValueRender(value: any, className: string = ''): React.ReactNode {
+function simpleValueRender(
+  value: any,
+  className: string = ""
+): React.ReactNode {
   const valueType: string = typeof value;
   return (
-    <span className={className !== '' ? className : String(valueType)}>
+    <span className={className !== "" ? className : String(valueType)}>
       {String(value)}
     </span>
   );
@@ -44,7 +62,7 @@ function valueRender(value: any): React.ReactNode {
   let obj = value;
   let valueType = typeof obj;
 
-  if (valueType === 'string') {
+  if (valueType === "string") {
     try {
       obj = JSON.parse(value);
     } catch {
@@ -53,10 +71,11 @@ function valueRender(value: any): React.ReactNode {
   }
   valueType = typeof obj;
 
-  const isSimpleValue = ['string', 'number', 'boolean', 'undefined'].includes(valueType) || !value;
+  const isSimpleValue =
+    ["string", "number", "boolean", "undefined"].includes(valueType) || !value;
 
   // null
-  if (isSimpleValue && valueType === 'object') {
+  if (isSimpleValue && valueType === "object") {
     return simpleValueRender(value, "null");
   }
 
@@ -75,8 +94,8 @@ function jsonRender(jsonObj: Json) {
   });
 }
 
-const Format2Json2View: React.FC<IProps> = ({ data }) => {
-  return <code className="format2Json2View">{valueRender(data)}</code>;
+const Format2Json2View: React.FC<IProps> = ({ source }) => {
+  return <code className="format2Json2View">{valueRender(source)}</code>;
 };
 
 export default Format2Json2View;

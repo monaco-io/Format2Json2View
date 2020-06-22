@@ -7,7 +7,7 @@
 Install this component with [NPM](https://www.npmjs.com/package/format2json2view).
 
 ```shell
-npm install --save format2json2view
+npm i format2json2view
 ```
 
 Or add to your package.json config file:

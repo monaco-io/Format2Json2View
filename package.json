@@ -35,7 +35,7 @@
     "build:css": "node-sass -r ./src/Format2Json2View/index.scss -o ./dist --precision",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build:component"
   },
   "husky": {
     "hooks": {
@@ -60,6 +60,7 @@
     "@types/node": "^12.12.47",
     "@types/react": "^16.9.38",
     "@types/react-dom": "^16.9.8",
+    "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "husky": "^4.2.5",

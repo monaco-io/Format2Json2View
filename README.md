@@ -24,7 +24,7 @@ Or add to your package.json config file:
 
 ```typescript
 // import the Format2Json2View component
-import ReactJson from 'Format2Json2View'
+import Format2Json2View from 'Format2Json2View'
 
 const json = {a:1,b:true,c:'c'}
 
@@ -54,4 +54,4 @@ const jsonStr = `{"a":1,"b":true,"d":null,"e":true,"f":false,"g":[1,"2",true,fal
 
 ## TODO
 
-- rewrite webpack
+- refactor packaging process

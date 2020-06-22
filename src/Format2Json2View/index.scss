@@ -1,0 +1,53 @@
+code.format2Json2View {
+  display: block;
+  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  white-space: pre;
+  text-align: left;
+
+  .key {
+    color: #070607;
+  }
+
+  .value::after {
+    display: inline-block;
+    content: ',';
+  }
+
+  .null {
+    color: #0876ab;
+  }
+
+  .boolean,
+  .number {
+    color: #9a0256;
+  }
+
+  .undefined {
+    color: #070607;
+  }
+
+  .string {
+    color: #699a08;
+  }
+
+  .string::before, .string::after {
+    display: inline-block;
+    color: #699a08;
+    content: '"';
+  }
+
+
+  .array > .line {
+    padding-left: 2em;
+  }
+
+  .json > .line {
+    padding-left: 2em;
+  }
+
+  .line {
+    position: relative;
+    line-height: 1.7;
+  }
+}
+

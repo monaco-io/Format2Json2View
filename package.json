@@ -38,7 +38,8 @@
     "build:css": "node-sass -r ./src/Format2Json2View/index.scss -o ./dist --precision",
     "lint": "eslint --ext js,ts,tsx src",
     "lint-staged": "lint-staged",
-    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build:component"
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build:component",
+    "tar": "cd ./dist && tar -czvf Format2Json2View.tar ./*"
   },
   "husky": {
     "hooks": {

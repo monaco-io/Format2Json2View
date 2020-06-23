@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:component": "rm -fr ./dist&&npm run build:ts&&npm run build:css",
+    "build:component": "rm -rf ./dist && npm run build:ts && npm run build:css",
     "build:ts": "tsc -p tsconfig.build.json",
     "test:nowatch": "cross-env CI=true react-scripts test",
     "build:css": "node-sass -r ./src/Format2Json2View/index.scss -o ./dist --precision",
